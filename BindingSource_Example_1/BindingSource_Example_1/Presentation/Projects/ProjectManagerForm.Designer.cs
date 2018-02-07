@@ -52,6 +52,9 @@ namespace BindingSource_Example_1.Presentation.Projects
             this.bt_refreshData = new System.Windows.Forms.Button();
             this.bt_Delete = new System.Windows.Forms.Button();
             this.bt_Update = new System.Windows.Forms.Button();
+            this.bt_new = new System.Windows.Forms.Button();
+            this.bt_save = new System.Windows.Forms.Button();
+            this.bt_cancel = new System.Windows.Forms.Button();
             descriptionLabel = new System.Windows.Forms.Label();
             titleLabel = new System.Windows.Forms.Label();
             updateDateLabel = new System.Windows.Forms.Label();
@@ -248,11 +251,44 @@ namespace BindingSource_Example_1.Presentation.Projects
             this.bt_Update.UseVisualStyleBackColor = true;
             this.bt_Update.Click += new System.EventHandler(this.bt_Update_Click);
             // 
+            // bt_new
+            // 
+            this.bt_new.Location = new System.Drawing.Point(664, 106);
+            this.bt_new.Name = "bt_new";
+            this.bt_new.Size = new System.Drawing.Size(75, 23);
+            this.bt_new.TabIndex = 20;
+            this.bt_new.Text = "New";
+            this.bt_new.UseVisualStyleBackColor = true;
+            this.bt_new.Click += new System.EventHandler(this.bt_new_Click);
+            // 
+            // bt_save
+            // 
+            this.bt_save.Location = new System.Drawing.Point(664, 135);
+            this.bt_save.Name = "bt_save";
+            this.bt_save.Size = new System.Drawing.Size(75, 23);
+            this.bt_save.TabIndex = 21;
+            this.bt_save.Text = "Save";
+            this.bt_save.UseVisualStyleBackColor = true;
+            this.bt_save.Click += new System.EventHandler(this.bt_save_Click);
+            // 
+            // bt_cancel
+            // 
+            this.bt_cancel.Location = new System.Drawing.Point(664, 167);
+            this.bt_cancel.Name = "bt_cancel";
+            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancel.TabIndex = 22;
+            this.bt_cancel.Text = "Cancel";
+            this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
+            // 
             // ProjectManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 516);
+            this.Controls.Add(this.bt_cancel);
+            this.Controls.Add(this.bt_save);
+            this.Controls.Add(this.bt_new);
             this.Controls.Add(this.bt_Update);
             this.Controls.Add(this.bt_Delete);
             this.Controls.Add(this.bt_refreshData);
@@ -299,5 +335,8 @@ namespace BindingSource_Example_1.Presentation.Projects
         private Button bt_refreshData;
         private Button bt_Delete;
         private Button bt_Update;
+        private Button bt_new;
+        private Button bt_save;
+        private Button bt_cancel;
     }
 }

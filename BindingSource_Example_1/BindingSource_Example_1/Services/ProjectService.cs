@@ -29,5 +29,14 @@ namespace BindingSource_Example_1.Services
            // Code of Update method
 
         }
+
+        public void Add(Project new_project)
+        {
+            new_project.UpdateDate = DateTime.Now.AddDays(20) ;
+            
+            ListProjects.Add(new_project);
+
+            
+        }
     }
 }

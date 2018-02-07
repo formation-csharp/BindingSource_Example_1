@@ -18,10 +18,26 @@ namespace BindingSource_Example_1.Presentation.Projects
         {
             InitializeComponent();
 
-          //  this.dataGridViewProject.DataSource = this.bindingSourceProject;
-          //  this.dataGridViewProject.AutoGenerateColumns = false;
+            //  this.dataGridViewProject.DataSource = this.bindingSourceProject;
+            //  this.dataGridViewProject.AutoGenerateColumns = false;
+
+           this.projectBindingSource.AddingNew += ProjectBindingSource_AddingNew;
 
 
+        }
+
+        private void ProjectBindingSource_AddingNew(object sender, AddingNewEventArgs e)
+        {
+
+            Project new_project = new Project();
+            new ProjectService().Add(new_project);
+            this.RefreshData();
+
+
+           // Project project = new Project();
+           // new ProjectService().Add(project);
+
+           //// e.NewObject = project;
         }
 
         private void ProjectManagerForm_Load(object sender, EventArgs e)
@@ -31,7 +47,11 @@ namespace BindingSource_Example_1.Presentation.Projects
 
         private void RefreshData()
         {
+
+           //  this.dataGridViewProject.DataSource = this.projectBindingSource;
             this.projectBindingSource.DataSource = new ProjectService().GetData();
+            this.projectBindingSource.ResetBindings(true);
+           
         }
 
         private void bt_First_Click(object sender, EventArgs e)
@@ -77,6 +97,33 @@ namespace BindingSource_Example_1.Presentation.Projects
             project.Description = descriptionTextBox.Text;
             new ProjectService().Update(project);
 
+
+        }
+
+        private void bt_new_Click(object sender, EventArgs e)
+        {
+            // Solution 1
+            //Project new_project = new Project();
+            //new ProjectService().Add(new_project);
+            //this.RefreshData();
+
+
+            // Solution 2 
+            this.projectBindingSource.AddNew();
+            
+
+
+        }
+
+        private void bt_save_Click(object sender, EventArgs e)
+        {
+            this.projectBindingSource.EndEdit();
+           
+        }
+
+        private void bt_cancel_Click(object sender, EventArgs e)
+        {
+            this.projectBindingSource.CancelEdit();
 
         }
     }
